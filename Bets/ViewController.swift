@@ -9,8 +9,6 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.bounces = false
         tableView.separatorStyle = .singleLine
         return tableView
     }()
@@ -18,7 +16,7 @@ class ViewController: UIViewController {
     private lazy var updateOddsButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Tap me!", for: .normal)
+        button.setTitle("Update Odds", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .blue
         button.layer.cornerRadius = 8
@@ -88,6 +86,22 @@ extension ViewController {
         tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: "LoadingTableViewCell")
         tableView.register(BetsTableViewCell.self, forCellReuseIdentifier: "BetsTableViewCell")
     }
+    
+    private func cellForRowAt(indexPath: IndexPath) -> UITableViewCell {
+        if isLoading {
+            if let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as? LoadingTableViewCell {
+                return loadingCell
+            }
+        } else {
+            if let betsCell = tableView.dequeueReusableCell(withIdentifier: "BetsTableViewCell", for: indexPath) as? BetsTableViewCell {
+                let odd = items[indexPath.row]
+                betsCell.setup(domain: odd)
+                return betsCell
+            }
+        }
+        
+        return UITableViewCell()
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -96,15 +110,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isLoading {
-            let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as! LoadingTableViewCell
-            return loadingCell
-        } else {
-            let betsCell = tableView.dequeueReusableCell(withIdentifier: "BetsTableViewCell", for: indexPath) as! BetsTableViewCell
-            let odd = items[indexPath.row]
-            betsCell.setup(domain: odd)
-            return betsCell
-        }
+        return cellForRowAt(indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
