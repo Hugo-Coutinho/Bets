@@ -1,13 +1,13 @@
 {
-  "originHash" : "f5ba29aafa16aab7333aa51bf94d2f90e47b9f210c460b26fe2c6ed3ccc2c250",
+  "originHash" : "f1a2afdc00650bc43fdcea7012ad7dbee7bce8dccc9a4e89112ec8032a1beb7f",
   "pins" : [
     {
-      "identity" : "odds",
+      "identity" : "oddsfeature",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Hugo-Coutinho/Odds.git",
+      "location" : "https://github.com/Hugo-Coutinho/OddsFeature.git",
       "state" : {
-        "revision" : "eb691571c6ef26af17592aa2fbf53c451a077265",
-        "version" : "1.0.2"
+        "revision" : "6c745b25313fa96863000003572cf207f8bbf038",
+        "version" : "1.0.0"
       }
     }
   ],
