@@ -1,0 +1,15 @@
+{
+  "originHash" : "69fb0c113f8658846ed0aac4146c91c12fd3bc0cbfb876cbd43665130cbafd70",
+  "pins" : [
+    {
+      "identity" : "hguicomponents",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Hugo-Coutinho/HGUIComponents",
+      "state" : {
+        "revision" : "606c16d34a2f4778dfd1dc9fddcffbbb98c81fa6",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 3
+}

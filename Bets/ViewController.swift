@@ -1,74 +1,146 @@
 import UIKit
 import BetsCore
+import HGUIComponent
+import Combine
 
-class ViewController: UIViewController, UICollectionViewDataSource {
+class ViewController: UIViewController {
+    // MARK: - UI ELEMENTS -
+    public lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = .clear
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.bounces = false
+        tableView.separatorStyle = .singleLine
+        return tableView
+    }()
     
-    private var list: UICollectionView!
-    private var activity: UIActivityIndicatorView!
+    private lazy var updateOddsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Tap me!", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        return button
+    }()
     
-    private let repository = BetRepository(service: RemoteBetService.instance)
-    private var items: [Bet] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = "Odds"
-        
-        let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
-        list = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        
-        list.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: "cell_id")
-        
-        list.dataSource = self
-        list.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(list)
-        list.isHidden = true
-        NSLayoutConstraint.activate([
-            list.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            list.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            list.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            list.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-        ])
-        
-        activity = UIActivityIndicatorView(style: .medium)
-        activity.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activity)
-        NSLayoutConstraint.activate([
-            activity.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activity.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
-        
-        UIView.animate(withDuration: 1, animations: {
-            self.list.isHidden = true
-            self.activity.startAnimating()
-        }) { _ in
-            Task {
-                do {
-                    self.items = try await self.repository.updateOdds()
-                    await MainActor.run {
-                        self.list.reloadData()
-                        UIView.animate(withDuration: 1, animations: {
-                            self.list.isHidden = false
-                            self.activity.stopAnimating()
-                        })
-                    }
-                } catch {
-                    print("Error fetching items.")
-                }
-            }
+    // MARK: - PROPERTIES -
+    //    lazy var homeSections: [Section] = [
+    //        BetsCoordinator().make(output: self)
+    //    ]
+    
+    private var viewModel: BetsViewModel = BetsCoordinator().makeViewModel()
+    private var cancellables = Set<AnyCancellable>()
+    private var items: Odds = [] {
+        didSet {
+            self.isLoading = false
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+    private var isLoading: Bool = true {
+        didSet {
+            self.tableView.reloadData()
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = items[indexPath.item]
-        let cell = list.dequeueReusableCell(withReuseIdentifier: "cell_id", for: indexPath) as? UICollectionViewListCell
-        var configuration = cell?.defaultContentConfiguration()
-        configuration?.text = item.name
-        cell?.contentConfiguration = configuration
-        return cell ?? UICollectionViewListCell()
+    // MARK: - LIFE CYCLE -
+    override func viewWillLayoutSubviews() {
+        title = Constants.title
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerCells()
+        fetchData()
+        view.addSubview(updateOddsButton)
+        view.addSubview(tableView)
+        setupConstraints()
+    }
+    
+    @objc func buttonTapped() {
+        Task {
+            await viewModel.updateOdds()
+        }
+        
+        isLoading = true
+    }
+    
+    struct Constants {
+        static let title = "Bets"
+    }
+}
+
+// MARK: - ASSISTANT -
+extension ViewController {
+    func fetchData() {
+        viewModel.$odds
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] odds in
+                guard let self = self,
+                      odds.count > 1 else { return }
+                
+                self.items = odds
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func registerCells() {
+        tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: "LoadingTableViewCell")
+        tableView.register(BetsTableViewCell.self, forCellReuseIdentifier: "BetsTableViewCell")
+    }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return isLoading ? 1 : items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoading {
+            let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as! LoadingTableViewCell
+            return loadingCell
+        } else {
+            let betsCell = tableView.dequeueReusableCell(withIdentifier: "BetsTableViewCell", for: indexPath) as! BetsTableViewCell
+            let odd = items[indexPath.row]
+            betsCell.setup(domain: odd)
+            return betsCell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}
+
+// MARK: - CONSTRAINTS -
+extension ViewController {
+    private func setupConstraints() {
+        setupOddsButtonConstraints()
+        setupTableViewConstraints()
+    }
+    
+    private func setupTableViewConstraints() {
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: updateOddsButton.bottomAnchor, constant: 8),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    private func setupOddsButtonConstraints() {
+        NSLayoutConstraint.activate([
+            updateOddsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            updateOddsButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            updateOddsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            updateOddsButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }

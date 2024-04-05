@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A623683D2BBF180500A6EDF4 /* BetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */; };
+		A62368402BBF3F7B00A6EDF4 /* HGUIComponent in Frameworks */ = {isa = PBXBuildFile; productRef = A623683F2BBF3F7B00A6EDF4 /* HGUIComponent */; };
+		A62368462BBF425D00A6EDF4 /* BetsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368452BBF425D00A6EDF4 /* BetsSection.swift */; };
+		A62368492BBF448000A6EDF4 /* BetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */; };
+		A623684C2BBF504400A6EDF4 /* BetsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */; };
+		A62368502BBFD99D00A6EDF4 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */; };
 		B5C0FD5C29E69206009AD7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */; };
 		B5C0FD5E29E69206009AD7E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */; };
 		B5C0FD6029E69206009AD7E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5F29E69206009AD7E4 /* ViewController.swift */; };
@@ -64,6 +69,10 @@
 
 /* Begin PBXFileReference section */
 		A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsViewModel.swift; sourceTree = "<group>"; };
+		A62368452BBF425D00A6EDF4 /* BetsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsSection.swift; sourceTree = "<group>"; };
+		A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsTableViewCell.swift; sourceTree = "<group>"; };
+		A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCoordinator.swift; sourceTree = "<group>"; };
+		A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		B5C0FD5829E69206009AD7E4 /* Bets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C0FD8729E694E1009AD7E4 /* BetsCore.framework in Frameworks */,
+				A62368402BBF3F7B00A6EDF4 /* HGUIComponent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +118,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A62368412BBF416300A6EDF4 /* Bets */ = {
+			isa = PBXGroup;
+			children = (
+				A623684A2BBF502E00A6EDF4 /* Coordinator */,
+				A62368472BBF445E00A6EDF4 /* View */,
+				A62368442BBF422000A6EDF4 /* Service */,
+				A62368432BBF420A00A6EDF4 /* ViewModel */,
+				A62368422BBF420100A6EDF4 /* Main */,
+			);
+			path = Bets;
+			sourceTree = "<group>";
+		};
+		A62368422BBF420100A6EDF4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A62368452BBF425D00A6EDF4 /* BetsSection.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A62368432BBF420A00A6EDF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A62368442BBF422000A6EDF4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A62368472BBF445E00A6EDF4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */,
+				A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A623684A2BBF502E00A6EDF4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		B5C0FD4F29E69206009AD7E4 = {
 			isa = PBXGroup;
 			children = (
@@ -131,15 +194,14 @@
 		B5C0FD5A29E69206009AD7E4 /* Bets */ = {
 			isa = PBXGroup;
 			children = (
+				A62368412BBF416300A6EDF4 /* Bets */,
 				B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */,
 				B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */,
 				B5C0FD5F29E69206009AD7E4 /* ViewController.swift */,
-				B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */,
 				B5C0FD6129E69206009AD7E4 /* Main.storyboard */,
 				B5C0FD6429E69208009AD7E4 /* Assets.xcassets */,
 				B5C0FD6629E69208009AD7E4 /* LaunchScreen.storyboard */,
 				B5C0FD6929E69208009AD7E4 /* Info.plist */,
-				A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */,
 			);
 			path = Bets;
 			sourceTree = "<group>";
@@ -191,6 +253,9 @@
 				B5C0FD8629E694E1009AD7E4 /* PBXTargetDependency */,
 			);
 			name = Bets;
+			packageProductDependencies = (
+				A623683F2BBF3F7B00A6EDF4 /* HGUIComponent */,
+			);
 			productName = Bets;
 			productReference = B5C0FD5829E69206009AD7E4 /* Bets.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +329,9 @@
 				Base,
 			);
 			mainGroup = B5C0FD4F29E69206009AD7E4;
+			packageReferences = (
+				A623683E2BBF3F7B00A6EDF4 /* XCRemoteSwiftPackageReference "HGUIComponents" */,
+			);
 			productRefGroup = B5C0FD5929E69206009AD7E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,9 +377,13 @@
 			files = (
 				A623683D2BBF180500A6EDF4 /* BetsViewModel.swift in Sources */,
 				B5C0FD6029E69206009AD7E4 /* ViewController.swift in Sources */,
+				A62368502BBFD99D00A6EDF4 /* LoadingTableViewCell.swift in Sources */,
+				A623684C2BBF504400A6EDF4 /* BetsCoordinator.swift in Sources */,
 				B5C0FD9529E69625009AD7E4 /* RemoteBetService.swift in Sources */,
 				B5C0FD5C29E69206009AD7E4 /* AppDelegate.swift in Sources */,
 				B5C0FD5E29E69206009AD7E4 /* SceneDelegate.swift in Sources */,
+				A62368462BBF425D00A6EDF4 /* BetsSection.swift in Sources */,
+				A62368492BBF448000A6EDF4 /* BetsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +771,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A623683E2BBF3F7B00A6EDF4 /* XCRemoteSwiftPackageReference "HGUIComponents" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Hugo-Coutinho/HGUIComponents";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A623683F2BBF3F7B00A6EDF4 /* HGUIComponent */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A623683E2BBF3F7B00A6EDF4 /* XCRemoteSwiftPackageReference "HGUIComponents" */;
+			productName = HGUIComponent;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5C0FD5029E69206009AD7E4 /* Project object */;
 }
