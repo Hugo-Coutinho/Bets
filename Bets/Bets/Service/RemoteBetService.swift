@@ -38,3 +38,8 @@ class RemoteBetService: BetService {
         self.bets = bets
     }
 }
+
+public protocol BetService {
+    func loadBets() async throws -> [Bet]
+    func saveBets(_ bets: [Bet]) async throws
+}

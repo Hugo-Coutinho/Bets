@@ -20,10 +20,8 @@
 		B5C0FD6329E69206009AD7E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C0FD6129E69206009AD7E4 /* Main.storyboard */; };
 		B5C0FD6529E69208009AD7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C0FD6429E69208009AD7E4 /* Assets.xcassets */; };
 		B5C0FD6829E69208009AD7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C0FD6629E69208009AD7E4 /* LaunchScreen.storyboard */; };
-		B5C0FD8429E694E1009AD7E4 /* BetsCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B5C0FD7629E694E0009AD7E4 /* BetsCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5C0FD8729E694E1009AD7E4 /* BetsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */; };
 		B5C0FD8829E694E1009AD7E4 /* BetsCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B5C0FD9129E6950A009AD7E4 /* BetsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD9029E6950A009AD7E4 /* BetsRepository.swift */; };
 		B5C0FD9329E69531009AD7E4 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD9229E69531009AD7E4 /* Bet.swift */; };
 		B5C0FD9529E69625009AD7E4 /* RemoteBetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */; };
 /* End PBXBuildFile section */
@@ -77,8 +75,6 @@
 		B5C0FD6729E69208009AD7E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5C0FD6929E69208009AD7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BetsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C0FD7629E694E0009AD7E4 /* BetsCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BetsCore.h; sourceTree = "<group>"; };
-		B5C0FD9029E6950A009AD7E4 /* BetsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsRepository.swift; sourceTree = "<group>"; };
 		B5C0FD9229E69531009AD7E4 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
 		B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +108,7 @@
 		A62368412BBF416300A6EDF4 /* Bets */ = {
 			isa = PBXGroup;
 			children = (
+				A62368652BBFF80800A6EDF4 /* Model */,
 				A623684A2BBF502E00A6EDF4 /* Coordinator */,
 				A62368472BBF445E00A6EDF4 /* View */,
 				A62368442BBF422000A6EDF4 /* Service */,
@@ -171,11 +168,18 @@
 			path = Spy;
 			sourceTree = "<group>";
 		};
+		A62368652BBFF80800A6EDF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0FD9229E69531009AD7E4 /* Bet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B5C0FD4F29E69206009AD7E4 = {
 			isa = PBXGroup;
 			children = (
 				B5C0FD5A29E69206009AD7E4 /* Bets */,
-				B5C0FD7529E694E0009AD7E4 /* BetsCore */,
 				A62368582BBFEB0900A6EDF4 /* BetsTests */,
 				B5C0FD5929E69206009AD7E4 /* Products */,
 			);
@@ -206,16 +210,6 @@
 			path = Bets;
 			sourceTree = "<group>";
 		};
-		B5C0FD7529E694E0009AD7E4 /* BetsCore */ = {
-			isa = PBXGroup;
-			children = (
-				B5C0FD7629E694E0009AD7E4 /* BetsCore.h */,
-				B5C0FD9029E6950A009AD7E4 /* BetsRepository.swift */,
-				B5C0FD9229E69531009AD7E4 /* Bet.swift */,
-			);
-			path = BetsCore;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -223,7 +217,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C0FD8429E694E1009AD7E4 /* BetsCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C0FD9129E6950A009AD7E4 /* BetsRepository.swift in Sources */,
 				B5C0FD9329E69531009AD7E4 /* Bet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
