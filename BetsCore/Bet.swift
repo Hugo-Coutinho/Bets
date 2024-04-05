@@ -10,21 +10,11 @@ public class Bet {
         self.quality = quality
     }
     
-    // MARK: - ACCESSIBLE FUNCTIONS -
+    // MARK: - EXPOSED FUNCTIONS -
     public func update() {
         updateQuality()
         updateSellIn()
-        
-        guard sellIn < 0 else { return }
-        
-        switch name {
-        case Constants.totalScore:
-            quality = 0
-        case Constants.playerPerformance:
-            increaseQualityIfNeeded()
-        default:
-            decreaseQualityIfNeeded()
-        }
+        handleNegativeSellInIfNeed()
     }
     
     struct Constants {
@@ -36,25 +26,25 @@ public class Bet {
 
 // MARK: - ASSISTANT -
 extension Bet {
-    func updateSellIn() {
+    private func updateSellIn() {
         if name != Constants.winningTeam {
             sellIn -= 1
         }
     }
     
-    func increaseQualityIfNeeded(_ amount: Int = 1) {
+    private func increaseQualityIfNeeded(_ amount: Int = 1) {
         if quality < 50 {
             quality += amount
         }
     }
     
-    func decreaseQualityIfNeeded(_ amount: Int = 1) {
+    private func decreaseQualityIfNeeded(_ amount: Int = 1) {
         if quality > 0 {
             quality -= amount
         }
     }
     
-    func updateQuality() {
+    private func updateQuality() {
         switch name {
         case Constants.playerPerformance:
             increaseQualityIfNeeded()
@@ -68,6 +58,19 @@ extension Bet {
             }
         case Constants.winningTeam:
             break
+        default:
+            decreaseQualityIfNeeded()
+        }
+    }
+    
+    private func handleNegativeSellInIfNeed() {
+        guard sellIn < 0 else { return }
+        
+        switch name {
+        case Constants.totalScore:
+            quality = 0
+        case Constants.playerPerformance:
+            increaseQualityIfNeeded()
         default:
             decreaseQualityIfNeeded()
         }

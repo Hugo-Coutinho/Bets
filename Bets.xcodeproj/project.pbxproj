@@ -13,6 +13,9 @@
 		A62368492BBF448000A6EDF4 /* BetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */; };
 		A623684C2BBF504400A6EDF4 /* BetsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */; };
 		A62368502BBFD99D00A6EDF4 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */; };
+		A623685A2BBFEB0900A6EDF4 /* BetsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368592BBFEB0900A6EDF4 /* BetsViewModelTests.swift */; };
+		A62368602BBFEB7200A6EDF4 /* ServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368512BBFE98100A6EDF4 /* ServiceSpy.swift */; };
+		A62368632BBFEF7400A6EDF4 /* BetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368622BBFEF7400A6EDF4 /* BetModelTests.swift */; };
 		B5C0FD5C29E69206009AD7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */; };
 		B5C0FD5E29E69206009AD7E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */; };
 		B5C0FD6029E69206009AD7E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5F29E69206009AD7E4 /* ViewController.swift */; };
@@ -30,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A623685B2BBFEB0900A6EDF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5C0FD5029E69206009AD7E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5C0FD5729E69206009AD7E4;
+			remoteInfo = Bets;
+		};
 		B5C0FD7D29E694E1009AD7E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5C0FD5029E69206009AD7E4 /* Project object */;
@@ -73,6 +83,10 @@
 		A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsTableViewCell.swift; sourceTree = "<group>"; };
 		A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCoordinator.swift; sourceTree = "<group>"; };
 		A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		A62368512BBFE98100A6EDF4 /* ServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSpy.swift; sourceTree = "<group>"; };
+		A62368572BBFEB0900A6EDF4 /* BetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62368592BBFEB0900A6EDF4 /* BetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsViewModelTests.swift; sourceTree = "<group>"; };
+		A62368622BBFEF7400A6EDF4 /* BetModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetModelTests.swift; sourceTree = "<group>"; };
 		B5C0FD5829E69206009AD7E4 /* Bets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +105,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A62368542BBFEB0900A6EDF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5C0FD5529E69206009AD7E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -171,12 +192,31 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		A62368582BBFEB0900A6EDF4 /* BetsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A62368612BBFECC400A6EDF4 /* Spy */,
+				A62368592BBFEB0900A6EDF4 /* BetsViewModelTests.swift */,
+				A62368622BBFEF7400A6EDF4 /* BetModelTests.swift */,
+			);
+			path = BetsTests;
+			sourceTree = "<group>";
+		};
+		A62368612BBFECC400A6EDF4 /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				A62368512BBFE98100A6EDF4 /* ServiceSpy.swift */,
+			);
+			path = Spy;
+			sourceTree = "<group>";
+		};
 		B5C0FD4F29E69206009AD7E4 = {
 			isa = PBXGroup;
 			children = (
 				B5C0FD5A29E69206009AD7E4 /* Bets */,
 				B5C0FD7529E694E0009AD7E4 /* BetsCore */,
 				B5C0FD8129E694E1009AD7E4 /* BetsCoreTests */,
+				A62368582BBFEB0900A6EDF4 /* BetsTests */,
 				B5C0FD5929E69206009AD7E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,6 +227,7 @@
 				B5C0FD5829E69206009AD7E4 /* Bets.app */,
 				B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */,
 				B5C0FD7B29E694E1009AD7E4 /* BetsCoreTests.xctest */,
+				A62368572BBFEB0900A6EDF4 /* BetsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +279,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A62368562BBFEB0900A6EDF4 /* BetsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A623685D2BBFEB0900A6EDF4 /* Build configuration list for PBXNativeTarget "BetsTests" */;
+			buildPhases = (
+				A62368532BBFEB0900A6EDF4 /* Sources */,
+				A62368542BBFEB0900A6EDF4 /* Frameworks */,
+				A62368552BBFEB0900A6EDF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A623685C2BBFEB0900A6EDF4 /* PBXTargetDependency */,
+			);
+			name = BetsTests;
+			productName = BetsTests;
+			productReference = A62368572BBFEB0900A6EDF4 /* BetsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B5C0FD5729E69206009AD7E4 /* Bets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5C0FD6C29E69208009AD7E4 /* Build configuration list for PBXNativeTarget "Bets" */;
@@ -304,9 +363,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					A62368562BBFEB0900A6EDF4 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = B5C0FD5729E69206009AD7E4;
+					};
 					B5C0FD5729E69206009AD7E4 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -339,11 +402,19 @@
 				B5C0FD5729E69206009AD7E4 /* Bets */,
 				B5C0FD7329E694E0009AD7E4 /* BetsCore */,
 				B5C0FD7A29E694E1009AD7E4 /* BetsCoreTests */,
+				A62368562BBFEB0900A6EDF4 /* BetsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A62368552BBFEB0900A6EDF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5C0FD5629E69206009AD7E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,6 +442,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A62368532BBFEB0900A6EDF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62368602BBFEB7200A6EDF4 /* ServiceSpy.swift in Sources */,
+				A62368632BBFEF7400A6EDF4 /* BetModelTests.swift in Sources */,
+				A623685A2BBFEB0900A6EDF4 /* BetsViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5C0FD5429E69206009AD7E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +488,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A623685C2BBFEB0900A6EDF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5C0FD5729E69206009AD7E4 /* Bets */;
+			targetProxy = A623685B2BBFEB0900A6EDF4 /* PBXContainerItemProxy */;
+		};
 		B5C0FD7E29E694E1009AD7E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B5C0FD7329E694E0009AD7E4 /* BetsCore */;
@@ -444,6 +530,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A623685E2BBFEB0900A6EDF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D8SS8BRWWP;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.hugocoutinho.Bets.BetsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bets.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bets";
+			};
+			name = Debug;
+		};
+		A623685F2BBFEB0900A6EDF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D8SS8BRWWP;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.hugocoutinho.Bets.BetsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bets.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bets";
+			};
+			name = Release;
+		};
 		B5C0FD6A29E69208009AD7E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -734,6 +867,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A623685D2BBFEB0900A6EDF4 /* Build configuration list for PBXNativeTarget "BetsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A623685E2BBFEB0900A6EDF4 /* Debug */,
+				A623685F2BBFEB0900A6EDF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5C0FD5329E69206009AD7E4 /* Build configuration list for PBXProject "Bets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
