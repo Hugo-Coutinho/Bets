@@ -1,6 +1,5 @@
 import UIKit
 import BetsCore
-import HGUIComponent
 import Combine
 
 class ViewController: UIViewController {
@@ -30,10 +29,6 @@ class ViewController: UIViewController {
     }()
     
     // MARK: - PROPERTIES -
-    //    lazy var homeSections: [Section] = [
-    //        BetsCoordinator().make(output: self)
-    //    ]
-    
     private var viewModel: BetsViewModel = BetsCoordinator().makeViewModel()
     private var cancellables = Set<AnyCancellable>()
     private var items: Odds = [] {
