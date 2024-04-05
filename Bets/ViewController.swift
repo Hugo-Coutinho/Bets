@@ -1,5 +1,6 @@
 import UIKit
 import Combine
+import Odds
 
 class ViewController: UIViewController {
     // MARK: - UI ELEMENTS -
@@ -90,12 +91,14 @@ extension ViewController {
     private func cellForRowAt(indexPath: IndexPath) -> UITableViewCell {
         if isLoading {
             if let loadingCell = tableView.dequeueReusableCell(withIdentifier: "LoadingTableViewCell", for: indexPath) as? LoadingTableViewCell {
+                loadingCell.selectionStyle = .none
                 return loadingCell
             }
         } else {
             if let betsCell = tableView.dequeueReusableCell(withIdentifier: "BetsTableViewCell", for: indexPath) as? BetsTableViewCell {
                 let odd = items[indexPath.row]
                 betsCell.setup(domain: odd)
+                betsCell.selectionStyle = .none
                 return betsCell
             }
         }

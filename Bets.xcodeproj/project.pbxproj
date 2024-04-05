@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A623683D2BBF180500A6EDF4 /* BetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */; };
-		A62368492BBF448000A6EDF4 /* BetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */; };
-		A623684C2BBF504400A6EDF4 /* BetsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */; };
-		A62368502BBFD99D00A6EDF4 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */; };
 		A623685A2BBFEB0900A6EDF4 /* BetsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368592BBFEB0900A6EDF4 /* BetsViewModelTests.swift */; };
 		A62368602BBFEB7200A6EDF4 /* ServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368512BBFE98100A6EDF4 /* ServiceSpy.swift */; };
 		A62368632BBFEF7400A6EDF4 /* BetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62368622BBFEF7400A6EDF4 /* BetModelTests.swift */; };
-		A62368662BBFF90800A6EDF4 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD9229E69531009AD7E4 /* Bet.swift */; };
+		A62368692BC000F400A6EDF4 /* Odds in Frameworks */ = {isa = PBXBuildFile; productRef = A62368682BC000F400A6EDF4 /* Odds */; };
 		B5C0FD5C29E69206009AD7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */; };
 		B5C0FD5E29E69206009AD7E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */; };
 		B5C0FD6029E69206009AD7E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD5F29E69206009AD7E4 /* ViewController.swift */; };
@@ -23,7 +19,6 @@
 		B5C0FD6829E69208009AD7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C0FD6629E69208009AD7E4 /* LaunchScreen.storyboard */; };
 		B5C0FD8729E694E1009AD7E4 /* BetsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */; };
 		B5C0FD8829E694E1009AD7E4 /* BetsCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B5C0FD9529E69625009AD7E4 /* RemoteBetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +53,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsViewModel.swift; sourceTree = "<group>"; };
-		A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsTableViewCell.swift; sourceTree = "<group>"; };
-		A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCoordinator.swift; sourceTree = "<group>"; };
-		A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		A62368512BBFE98100A6EDF4 /* ServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSpy.swift; sourceTree = "<group>"; };
 		A62368572BBFEB0900A6EDF4 /* BetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62368592BBFEB0900A6EDF4 /* BetsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsViewModelTests.swift; sourceTree = "<group>"; };
@@ -75,8 +66,6 @@
 		B5C0FD6729E69208009AD7E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5C0FD6929E69208009AD7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5C0FD7429E694E0009AD7E4 /* BetsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BetsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C0FD9229E69531009AD7E4 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
-		B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A62368692BC000F400A6EDF4 /* Odds in Frameworks */,
 				B5C0FD8729E694E1009AD7E4 /* BetsCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,51 +95,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A62368412BBF416300A6EDF4 /* Bets */ = {
-			isa = PBXGroup;
-			children = (
-				A62368652BBFF80800A6EDF4 /* Model */,
-				A623684A2BBF502E00A6EDF4 /* Coordinator */,
-				A62368472BBF445E00A6EDF4 /* View */,
-				A62368442BBF422000A6EDF4 /* Service */,
-				A62368432BBF420A00A6EDF4 /* ViewModel */,
-			);
-			path = Bets;
-			sourceTree = "<group>";
-		};
-		A62368432BBF420A00A6EDF4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				A623683C2BBF180500A6EDF4 /* BetsViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A62368442BBF422000A6EDF4 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				B5C0FD9429E69625009AD7E4 /* RemoteBetService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		A62368472BBF445E00A6EDF4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A62368482BBF448000A6EDF4 /* BetsTableViewCell.swift */,
-				A623684F2BBFD99D00A6EDF4 /* LoadingTableViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		A623684A2BBF502E00A6EDF4 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				A623684B2BBF504400A6EDF4 /* BetsCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		A62368582BBFEB0900A6EDF4 /* BetsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,14 +111,6 @@
 				A62368512BBFE98100A6EDF4 /* ServiceSpy.swift */,
 			);
 			path = Spy;
-			sourceTree = "<group>";
-		};
-		A62368652BBFF80800A6EDF4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B5C0FD9229E69531009AD7E4 /* Bet.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B5C0FD4F29E69206009AD7E4 = {
@@ -198,7 +135,6 @@
 		B5C0FD5A29E69206009AD7E4 /* Bets */ = {
 			isa = PBXGroup;
 			children = (
-				A62368412BBF416300A6EDF4 /* Bets */,
 				B5C0FD5B29E69206009AD7E4 /* AppDelegate.swift */,
 				B5C0FD5D29E69206009AD7E4 /* SceneDelegate.swift */,
 				B5C0FD5F29E69206009AD7E4 /* ViewController.swift */,
@@ -257,6 +193,7 @@
 			);
 			name = Bets;
 			packageProductDependencies = (
+				A62368682BC000F400A6EDF4 /* Odds */,
 			);
 			productName = Bets;
 			productReference = B5C0FD5829E69206009AD7E4 /* Bets.app */;
@@ -313,6 +250,7 @@
 			);
 			mainGroup = B5C0FD4F29E69206009AD7E4;
 			packageReferences = (
+				A62368672BC000F400A6EDF4 /* XCRemoteSwiftPackageReference "Odds" */,
 			);
 			productRefGroup = B5C0FD5929E69206009AD7E4 /* Products */;
 			projectDirPath = "";
@@ -367,15 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A623683D2BBF180500A6EDF4 /* BetsViewModel.swift in Sources */,
 				B5C0FD6029E69206009AD7E4 /* ViewController.swift in Sources */,
-				A62368502BBFD99D00A6EDF4 /* LoadingTableViewCell.swift in Sources */,
-				A623684C2BBF504400A6EDF4 /* BetsCoordinator.swift in Sources */,
-				B5C0FD9529E69625009AD7E4 /* RemoteBetService.swift in Sources */,
 				B5C0FD5C29E69206009AD7E4 /* AppDelegate.swift in Sources */,
 				B5C0FD5E29E69206009AD7E4 /* SceneDelegate.swift in Sources */,
-				A62368662BBFF90800A6EDF4 /* Bet.swift in Sources */,
-				A62368492BBF448000A6EDF4 /* BetsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +683,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A62368672BC000F400A6EDF4 /* XCRemoteSwiftPackageReference "Odds" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Hugo-Coutinho/Odds.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A62368682BC000F400A6EDF4 /* Odds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A62368672BC000F400A6EDF4 /* XCRemoteSwiftPackageReference "Odds" */;
+			productName = Odds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5C0FD5029E69206009AD7E4 /* Project object */;
 }

@@ -1,0 +1,15 @@
+{
+  "originHash" : "f5ba29aafa16aab7333aa51bf94d2f90e47b9f210c460b26fe2c6ed3ccc2c250",
+  "pins" : [
+    {
+      "identity" : "odds",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Hugo-Coutinho/Odds.git",
+      "state" : {
+        "revision" : "eb691571c6ef26af17592aa2fbf53c451a077265",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 3
+}
