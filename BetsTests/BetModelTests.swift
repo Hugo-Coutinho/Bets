@@ -7,7 +7,6 @@
 
 import XCTest
 import Combine
-import BetsCore
 @testable import Bets
 
 final class BetsModelTests: XCTestCase {

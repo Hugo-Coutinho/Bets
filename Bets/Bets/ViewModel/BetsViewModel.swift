@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import BetsCore
 
 class BetsViewModel {
     // MARK: - PROPERTIES -

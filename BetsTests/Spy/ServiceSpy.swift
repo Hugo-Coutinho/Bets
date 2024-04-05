@@ -6,14 +6,13 @@
 //
 
 import Bets
-import BetsCore
 
 class BetsServiceErrorHandlerSpy: BetService {
-    func loadBets() async throws -> [BetsCore.Bet] {
+    func loadBets() async throws -> [Bet] {
         return []
     }
     
-    func saveBets(_ bets: [BetsCore.Bet]) async throws {
+    func saveBets(_ bets: [Bet]) async throws {
         
     }
 }

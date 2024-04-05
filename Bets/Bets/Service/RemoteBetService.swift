@@ -1,4 +1,4 @@
-import BetsCore
+
 
 /// This class simulates bet items coming from a remote server.
 /// Do not modify.

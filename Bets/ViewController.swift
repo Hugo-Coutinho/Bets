@@ -1,5 +1,4 @@
 import UIKit
-import BetsCore
 import Combine
 
 class ViewController: UIViewController {
